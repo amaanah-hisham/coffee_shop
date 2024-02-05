@@ -25,9 +25,100 @@ class _HomeContentPageState extends State<HomeContentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(children: [
+          Container(
+            padding: EdgeInsets.all(16.0),
+            color: Colors.white, // Set background color
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200], // Set input field background color
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.search, color: Colors.grey),
+                        SizedBox(width: 8.0),
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Search...',
+                              hintStyle: TextStyle(color: Colors.grey),
+                            ),
+                            onChanged: (value) {
+                              // Handle search query
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Stack(
+            children: [
+              InkWell(
+                  onTap: () {
+                    print(sliderIndex);
+                  },
+                  child: CarouselSlider(
+                    items: imageList
+                        .map(
+                          (item)=> Image.asset(
+                        item['image_path'],
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
+                    )
+                        .toList(),
+                    carouselController: carouselController,
+                    options: CarouselOptions(
+                        scrollPhysics: const BouncingScrollPhysics(),
+                        autoPlay: true,
+                        aspectRatio:2,
+                        viewportFraction: 1,
+                        onPageChanged: (index, reason){
+                          setState(() {
+                            sliderIndex = index;
+                          });
+                        }
+                    ),
+                  )
+              )
+
+            ],
+          ),
 
 
-            ListView.builder(
+          SizedBox(height: 30),
+
+
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: const [
+                  Text(
+                    'Hot Beverages',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize:24,
+                    ),
+                  ),
+                ],
+              )
+          ),
+
+          SizedBox(height: 20),
+
+          Expanded(
+            child: ListView.builder(
               itemCount: 5,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
@@ -42,7 +133,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
                 );
               },
             ),
-
+          ),
 
           Padding(
             padding: EdgeInsets.only(top: 25.0, left: 25, right: 25),
