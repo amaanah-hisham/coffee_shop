@@ -5,7 +5,8 @@ import '../models/item.dart';
 
 class ItemCard extends StatelessWidget {
   Item item;
-  ItemCard({super.key, required this.item});
+  void Function()? onTap;
+  ItemCard({super.key, required this.item, required this.onTap,});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +28,13 @@ class ItemCard extends StatelessWidget {
 
 
               //description
-              Text(
-                item.description,
-                style: TextStyle(color: Colors.grey[600]),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25.0),
+                child: Text(
+                    item.description,
+                    style: TextStyle(color: Colors.grey[600]),
+
+                )
               ),
 
 
@@ -56,26 +61,30 @@ class ItemCard extends StatelessWidget {
                         Text(
                           'LKR' + item.price,
                           style: TextStyle(
-                            color: Colors.grey,
+                            color: Colors.black,
+
                           ),
                         )
                       ],
                     ),
                     //button to add to cart
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: Colors.brown[900],
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          bottomRight: Radius.circular(12),
+                    GestureDetector(
+                      onTap: onTap,
+                      child:Container(
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.brown[900],
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            bottomRight: Radius.circular(12),
+                          ),
                         ),
-                      ),
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                    )
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                      )
+                    ),
                   ],
                 ),
 

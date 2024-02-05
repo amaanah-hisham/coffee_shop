@@ -1,8 +1,10 @@
 import 'package:coffee_shop/models/item.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
 
 import '../components/item_card.dart';
+import '../models/cart.dart';
 
 class HomeContentPage extends StatefulWidget {
   const HomeContentPage({Key? key}) : super(key: key);
@@ -21,10 +23,25 @@ class _HomeContentPageState extends State<HomeContentPage> {
 
   int sliderIndex = 0;
 
+  //adding item to cart
+  void addCoffeeToCart(Item item) {
+    Provider.of<Cart>(context, listen: false).addItemToCart(item);
+
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Successfully Added!'),
+          content: Text('Check your cart'),
+        ),
+    );
+
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(children: [
+    return Consumer<Cart>(builder: (context, value, child) => Scaffold(
+      body: ListView(
+        children: [
           Container(
             padding: EdgeInsets.all(16.0),
             color: Colors.white, // Set background color
@@ -94,8 +111,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
             ],
           ),
 
-
-          SizedBox(height: 30),
+          SizedBox(height: 20),
 
 
           Padding(
@@ -117,35 +133,34 @@ class _HomeContentPageState extends State<HomeContentPage> {
 
           SizedBox(height: 20),
 
-          Expanded(
+          Container(
+            height: 360,
             child: ListView.builder(
               itemCount: 5,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
                 //create an item
-                Item item = Item(
-                    name: 'Americano',
-                    price: 'Rs 500',
-                    description: 'Americano in large',
-                    imagePath: 'lib/images/americano.jpg');
+                Item item = value.getHotBeverages()[
+                  index
+                ];
+
                 return ItemCard(
                   item: item,
+                  onTap: () => addCoffeeToCart(item),
                 );
               },
             ),
           ),
 
-          Padding(
-            padding: EdgeInsets.only(top: 25.0, left: 25, right: 25),
-            child: Divider(
-              color: Colors.white,
 
-            ),
-          ),
+
+
+
         ],
 
 
-            ),
-        );
+      ),
+    ),
+    );
     }
 }
