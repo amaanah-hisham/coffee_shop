@@ -1,6 +1,7 @@
 import 'package:coffee_shop/pages/promotions_page.dart';
 import 'package:flutter/material.dart';
 import 'package:coffee_shop/pages/profile_page.dart';
+import 'package:coffee_shop/pages/home_content_page.dart';
 import 'package:coffee_shop/pages/register_page.dart';
 import 'package:coffee_shop/pages/settings_page.dart';
 
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "KOFFEE KORNER",
+          'KOFFEE KORNER',
           style: TextStyle(
             color: Colors.brown[900],
             fontWeight: FontWeight.bold,
@@ -30,6 +31,22 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.brown[900]),
+        actions: [
+
+          InkWell(
+            onTap: () {
+
+              Navigator.pushNamed(context, '/profilepage');
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/images/profile2.jpg'),
+                radius: 20,
+              ),
+            ),
+          ),
+        ],
       ),
       drawer: Drawer(
         backgroundColor: Colors.brown[900],
@@ -43,7 +60,12 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 30),
             buildDrawerItem(Icons.home, 'Home', '/homepage', 0),
-            buildDrawerItem(Icons.settings, 'Settings', '/settingspage', 1),
+            buildDrawerItem(Icons.settings, 'Settings', '/settingspage', _currentIndex),
+            buildDrawerItem(Icons.shopping_cart, 'My Orders', '', 0),
+            buildDrawerItem(Icons.payment, 'Payment Details', '', 0),
+            buildDrawerItem(Icons.info, 'About Us', '', 0),
+            buildDrawerItem(Icons.logout, 'Log Out', '/login_page', 0),
+
           ],
         ),
       ),
@@ -107,7 +129,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildHomeContent(int index) {
     switch (index) {
       case 0:
-        return _buildCoffeeOptions();
+        return HomeContentPage();
       case 1:
         return CartPage();
       case 2:

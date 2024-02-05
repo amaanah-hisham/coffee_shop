@@ -4,6 +4,7 @@ import 'package:coffee_shop/pages/profile_page.dart';
 import 'package:coffee_shop/pages/promotions_page.dart';
 import 'package:coffee_shop/pages/register_page.dart';
 import 'package:coffee_shop/pages/settings_page.dart';
+import 'package:coffee_shop/pages/home_content_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/login_page.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login_page': (context) => LoginPage(),
         '/homepage': (context) => HomePage(),
+        '/homecontenet': (context) => HomeContentPage(),
         '/registerpage': (context) => RegisterPage(),
         '/cartpage': (context) => CartPage(),
         '/settingspage': (context) => SettingsPage(),
