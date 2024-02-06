@@ -15,9 +15,9 @@ class HomeContentPage extends StatefulWidget {
 
 class _HomeContentPageState extends State<HomeContentPage> {
   List imageList = [
-    {"id": 1, "image_path": 'lib/images/coffee_2.jpg'},
-    {"id": 2, "image_path": 'lib/images/coffee_1.jpg'},
-    {"id": 3, "image_path": 'lib/images/latte.jpg'}
+    {"id": 1, "image_path": 'lib/images/home_banner.png'},
+    {"id": 2, "image_path": 'lib/images/day2.png'},
+    {"id": 3, "image_path": 'lib/images/buy2.png'}
   ];
   final CarouselController carouselController = CarouselController();
 
@@ -28,11 +28,22 @@ class _HomeContentPageState extends State<HomeContentPage> {
     Provider.of<Cart>(context, listen: false).addItemToCart(item);
 
     showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Successfully Added!'),
-          content: Text('Check your cart'),
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(
+          'Successfully Added!',
+          style: TextStyle(color: Colors.brown[900],
+            fontWeight: FontWeight.bold,
+          ), // Change the font color here
         ),
+        content: Text(
+          'Check your cart',
+          style: TextStyle(color: Colors.brown[900],
+            fontWeight: FontWeight.bold,
+
+          ), // Change the font color here
+        ),
+      ),
     );
 
   }
@@ -111,7 +122,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
             ],
           ),
 
-          SizedBox(height: 20),
+          SizedBox(height: 30),
 
 
           Padding(
@@ -119,22 +130,25 @@ class _HomeContentPageState extends State<HomeContentPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
+                children:  [
                   Text(
                     'Hot Beverages',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize:24,
+                      fontSize:23,
+                      color: Colors.brown[900],
                     ),
                   ),
                 ],
               )
           ),
 
-          SizedBox(height: 20),
+          SizedBox(height: 10),
 
           Container(
             height: 360,
+            child: Padding(
+              padding: EdgeInsets.only(right:  20.0),
             child: ListView.builder(
               itemCount: 5,
               scrollDirection: Axis.horizontal,
@@ -151,8 +165,157 @@ class _HomeContentPageState extends State<HomeContentPage> {
               },
             ),
           ),
+          ),
+
+          SizedBox(height: 40),
 
 
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children:  [
+                  Text(
+                    'Cold Beverages',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize:23,
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                ],
+              )
+          ),
+
+          SizedBox(height: 10),
+
+          Container(
+            height: 360,
+            child: Padding(
+              padding: EdgeInsets.only(right:  20.0),
+              child: ListView.builder(
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index){
+                  //create an item
+                  Item item = value.getColdBeverages()[
+                  index
+                  ];
+
+                  return ItemCard(
+                    item: item,
+                    onTap: () => addCoffeeToCart(item),
+                  );
+                },
+              ),
+            ),
+          ),
+
+          SizedBox(height: 40),
+
+          Container(
+            height: 200.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('lib/images/dessert_banner.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+
+          ),
+          SizedBox(height: 30.0),
+
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children:  [
+                  Text(
+                    'Desserts',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize:23,
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                ],
+              )
+          ),
+
+          SizedBox(height: 10),
+
+          Container(
+            height: 360,
+            child: Padding(
+              padding: EdgeInsets.only(right:  20.0),
+              child: ListView.builder(
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index){
+                  //create an item
+                  Item item = value.getDesserts()[
+                  index
+                  ];
+
+                  return ItemCard(
+                    item: item,
+                    onTap: () => addCoffeeToCart(item),
+                  );
+                },
+              ),
+            ),
+          ),
+
+
+
+          SizedBox(height: 40),
+
+
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children:  [
+                  Text(
+                    'Savoury Items',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize:23,
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                ],
+              )
+          ),
+
+          SizedBox(height: 10),
+
+          Container(
+            height: 360,
+            child: Padding(
+              padding: EdgeInsets.only(right:  20.0),
+              child: ListView.builder(
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index){
+                  //create an item
+                  Item item = value.getSavoury()[
+                  index
+                  ];
+
+                  return ItemCard(
+                    item: item,
+                    onTap: () => addCoffeeToCart(item),
+                  );
+                },
+              ),
+            ),
+          ),
+
+          SizedBox(height: 20),
 
 
 

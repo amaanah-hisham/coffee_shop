@@ -28,14 +28,14 @@ class _CartItemState extends State<CartItem>
   Widget build(BuildContext context){
     return Container(
       decoration: BoxDecoration(
-          color: Colors.grey[300],
+          color: Colors.grey[100],
         borderRadius: BorderRadius.circular(8),
       ),
       margin: EdgeInsets.only(bottom: 10),
       child: ListTile(
         leading: Image.asset(widget.item.imagePath),
         title: Text(widget.item.name),
-        subtitle: Text(widget.item.price),
+        subtitle: Text("LKR ${widget.item.price}"),
         trailing: IconButton(
           icon: Icon(Icons.delete),
           onPressed: removeItemFromCart,

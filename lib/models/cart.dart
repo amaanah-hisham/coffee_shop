@@ -8,7 +8,7 @@ class Cart extends ChangeNotifier{
     Item(
       name: 'Latte',
       price: '600',
-      description: 'Hot cup of latte',
+      description: 'Hot cup of latte with freshley brewed coffee',
       imagePath:'lib/images/mocha.jpg',
     ),
     Item(
@@ -62,6 +62,113 @@ class Cart extends ChangeNotifier{
   void removeItemFromCart(Item item){
     userCart.remove(item);
     notifyListeners();
+  }
+
+
+  //cold beverages
+
+  List<Item> coldBeverages=[
+    Item(
+      name: 'L',
+      price: '600',
+      description: 'Hot cup of latte',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+    Item(
+      name: 'A',
+      price: '700',
+      description: 'Strong shot of americano',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+    Item(
+      name: 'M',
+      price: '600',
+      description: 'Mocha topped with whipped cream',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+    Item(
+      name: 'C',
+      price: '500',
+      description: 'Freshly brewed coffee with milk',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+
+  ];
+
+  List<Item> getColdBeverages()
+  {
+    return coldBeverages;
+  }
+
+  //desserts
+
+  List<Item> desserts=[
+    Item(
+      name: 'Liii',
+      price: '600',
+      description: 'Hot cup of latte',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+    Item(
+      name: 'Aaaa',
+      price: '700',
+      description: 'Strong shot of americano',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+    Item(
+      name: 'Miii',
+      price: '600',
+      description: 'Mocha topped with whipped cream',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+    Item(
+      name: 'Ciii',
+      price: '500',
+      description: 'Freshly brewed coffee with milk',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+
+  ];
+
+  List<Item> getDesserts()
+  {
+    return desserts;
+  }
+
+
+  //getSavoury
+
+  List<Item> savoury=[
+    Item(
+      name: 't',
+      price: '600',
+      description: 'Hot cup of latte',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+    Item(
+      name: 't',
+      price: '700',
+      description: 'Strong shot of americano',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+    Item(
+      name: 't',
+      price: '600',
+      description: 'Mocha topped with whipped cream',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+    Item(
+      name: 't',
+      price: '500',
+      description: 'Freshly brewed coffee with milk',
+      imagePath:'lib/images/mocha.jpg',
+    ),
+
+  ];
+
+  List<Item> getSavoury()
+  {
+    return savoury;
   }
 
 }

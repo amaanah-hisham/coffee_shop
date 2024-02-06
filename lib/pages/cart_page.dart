@@ -17,6 +17,18 @@ class CartPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //heading
+            SizedBox(height: 20),
+            Container(
+              height: 150.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('lib/images/cart_banner3.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+
+            ),
+            SizedBox(height: 20),
             Text(
               'My Cart',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
@@ -37,6 +49,37 @@ class CartPage extends StatelessWidget {
                 }
               ),
             ),
+
+            SizedBox(height: 15),
+
+           Align(
+             alignment: Alignment.topRight,
+             child: GestureDetector(
+              onTap: () {
+
+              },
+              child: Container(
+                width: 120,
+                padding: const EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Colors.brown[900],
+                  borderRadius: BorderRadius.circular(35),
+                ),
+                child: Center(
+                  child: Text(
+                    'Checkout',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+           ),
+            SizedBox(height: 15),
+
           ],
 
         ),
