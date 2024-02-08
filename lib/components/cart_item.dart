@@ -25,23 +25,43 @@ class _CartItemState extends State<CartItem>
 
 
   @override
-  Widget build(BuildContext context){
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.grey[100],
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 10),
+      child: Material(
+        elevation: 4,
         borderRadius: BorderRadius.circular(8),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: ListTile(
+            leading: Image.asset(widget.item.imagePath),
+            title: Text(
+              widget.item.name,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.brown[900],
+              ),
+            ),
+            subtitle: Text(
+              "LKR ${widget.item.price}",
+              style: TextStyle(
+                //fontWeight: FontWeight.bold,
+                color: Colors.brown[900],
+              ),
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.delete),
+              color: Colors.brown[900],
+              onPressed: removeItemFromCart,
+            ),
+          ),
+        ),
       ),
-      margin: EdgeInsets.only(bottom: 10),
-      child: ListTile(
-        leading: Image.asset(widget.item.imagePath),
-        title: Text(widget.item.name),
-        subtitle: Text("LKR ${widget.item.price}"),
-        trailing: IconButton(
-          icon: Icon(Icons.delete),
-          onPressed: removeItemFromCart,
-        ) ,
-    ),
     );
-
   }
+
+
 }

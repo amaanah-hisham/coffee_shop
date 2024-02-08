@@ -77,7 +77,7 @@ class ItemCard extends StatelessWidget {
                         'LKR ' + item.price,
                         style: TextStyle(
                           color: Colors.brown[900],
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w500,
                           fontSize: 17,
                         ),
                       ),
@@ -125,19 +125,30 @@ class ItemCard extends StatelessWidget {
         child: StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: Text(
-                item.name,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 23,
-                  color: Colors.brown[900],
-                ),
+              backgroundColor: Colors.white,
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 23,
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                  Divider( // Add a Divider as a heading indicator
+                    color: Colors.grey.shade400,
+                    thickness: 2,
+                    height: 20,
+                  ),
+                ],
               ),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 10),
+                  //SizedBox(height: 10),
                   Text(
                     'Description:',
                     style: TextStyle(
@@ -147,38 +158,20 @@ class ItemCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 5),
-                  Text(
-                    item.description,
-                    style: TextStyle(
-                      color: Colors.brown[600],
-                      fontWeight: FontWeight.w600,
-                      fontSize: 17,
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      item.description,
+                      textAlign: TextAlign.justify, // Justify the text
+                      style: TextStyle(
+                        color: Colors.brown[700],
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 15),
-                  Row(
-                    children: [
-                      Text(
-                        'Price: ',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.brown[900],
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text(
-                        'LKR ${item.price}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.brown[900],
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 5),
+                  SizedBox(height: 17),
 
-                  SizedBox(height: 10),
                   Text(
                     'Select Size:',
                     style: TextStyle(
@@ -201,16 +194,16 @@ class ItemCard extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: size == selectedSize ? Colors.brown[900] : Colors.white,
                             border: Border.all(
-                              color: size == selectedSize ? Colors.brown : Colors.grey,
+                              color: size == selectedSize ? Colors.brown : Colors.grey.shade700,
                             ),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
                             size,
                             style: TextStyle(
-                              color: size == selectedSize ? Colors.brown[900] : Colors.grey,
+                              color: size == selectedSize ? Colors.white : Colors.grey.shade700,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -218,7 +211,7 @@ class ItemCard extends StatelessWidget {
                       );
                     }).toList(),
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 20),
                   Text(
                     'Select Quantity:',
                     style: TextStyle(
@@ -231,37 +224,94 @@ class ItemCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      IconButton(
-                        icon: Icon(Icons.remove),
-                        onPressed: () {
-                          // Decrease quantity
-                          if (quantity > 1) {
-                            setState(() {
-                              quantity--;
-                            });
-                          }
-                        },
-                        color: Colors.brown[900], // Plus Icon Color
+                      SizedBox(
+                        width: 30, // Adjust the width of the buttons
+                        height: 30, // Adjust the height of the buttons
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            //border: Border.all(color: Colors.brown),
+                            color: Colors.brown[900],
+                          ),
+                          child: IconButton(
+                            padding: EdgeInsets.zero, // Added padding to center the icon
+                            icon: Icon(Icons.remove),
+                            onPressed: () {
+                              // Decrease quantity
+                              if (quantity > 1) {
+                                setState(() {
+                                  quantity--;
+                                });
+                              }
+                            },
+                            iconSize: 20, // Adjust the size of the icon
+                            color: Colors.white, // Minus Icon Color
+                          ),
+                        ),
                       ),
+                      SizedBox(width: 10), // Add some space between the buttons
                       Text(
                         '$quantity',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.brown,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17,
+                          color: Colors.brown[900],
                         ),
                       ),
-                      IconButton(
-                        icon: Icon(Icons.add),
-                        onPressed: () {
-                          // Increase quantity
-                          setState(() {
-                            quantity++;
-                          });
-                        },
-                        color: Colors.brown[900], // Minus Icon Color
+                      SizedBox(width: 10), // Add some space between the buttons
+                      SizedBox(
+                        width: 30, // Adjust the width of the buttons
+                        height: 30, // Adjust the height of the buttons
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            //border: Border.all(color: Colors.brown),
+                            color: Colors.brown[900],
+                          ),
+                          child: IconButton(
+                            padding: EdgeInsets.zero, // Added padding to center the icon
+                            icon: Icon(Icons.add),
+                            onPressed: () {
+                              // Increase quantity
+                              setState(() {
+                                quantity++;
+                              });
+                            },
+                            iconSize: 20, // Adjust the size of the icon
+                            color: Colors.white, // Plus Icon Color
+                          ),
+                        ),
                       ),
                     ],
                   ),
+
+
+
+
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Text(
+                        'Price: ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.brown[900],
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        'LKR ${item.price}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.brown[900],
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  ),
+
+
+                  SizedBox(height: 7),
                 ],
               ),
 

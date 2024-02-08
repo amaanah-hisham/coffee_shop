@@ -8,32 +8,32 @@ class Cart extends ChangeNotifier{
     Item(
       name: 'Cafe Mocha',
       price: '800',
-      description: 'A delightful blend of espresso, steamed milk, and chocolate syrup, topped with whipped cream!!',
+      description: 'A blend of espresso, steamed milk, and chocolate syrup, topped with whipped cream!!',
       imagePath:'lib/images/mocha3.png',
     ),
     Item(
       name: 'Cafe Latte',
       price: '600',
-      description: 'A smooth and creamy drink made with a shot of espresso and steamed milk, topped with milk foam!!',
+      description: 'A creamy drink made with espresso and steamed milk, topped with milk foam!!',
       imagePath:'lib/images/coffee_3.jpg',
     ),
     Item(
       name: 'Americano',
       price: '400',
-      description: 'Made by diluting a shot of espresso with hot water, this provides a similar strength to drip coffee!!',
+      description: 'Made by diluting a shot of espresso with hot water, strength to drip coffee!!',
       imagePath:'lib/images/americano2.jpg',
 
     ),
     Item(
       name: 'Cappuccino',
       price: '700',
-      description: 'A classic Italian beverage consisting of equal parts espresso, steamed milk, and milk foam!!',
+      description: 'A classic Italian beverage consisting of equal parts espresso, steamed milk!!',
       imagePath:'lib/images/capp.jpg',
     ),
     Item(
       name: 'Macchiato',
       price: '900',
-      description: 'A blend of espresso, steamed milk, and caramel syrup, creating a sweet and indulgent coffee treat!!',
+      description: 'A blend of espresso, steamed milk, and caramel syrup, creating a sweet treat!!',
       imagePath:'lib/images/caramel.jpg',
     ),
   ];
@@ -78,7 +78,7 @@ class Cart extends ChangeNotifier{
     Item(
       name: 'Frappuccino',
       price: '800',
-      description: 'A blended coffee beverage made with espresso, milk, ice, and flavored syrups, often topped with whipped cream!!',
+      description: 'A blended coffee beverage made with espresso, milk, ice, and flavored syrups!!',
       imagePath:'lib/images/frappe.jpg',
     ),
     Item(
@@ -90,7 +90,7 @@ class Cart extends ChangeNotifier{
     Item(
       name: 'Iced Americano',
       price: '700',
-      description: 'Espresso served over ice, offering a strong and refreshing option!!',
+      description: 'Espresso served over ice, offering a strong and refreshing coffee option!!',
       imagePath:'lib/images/americano3.jpg',
     ),
 
@@ -107,7 +107,7 @@ class Cart extends ChangeNotifier{
     Item(
       name: 'Tiramisu',
       price: '900',
-      description: 'Indulge in layers of espresso-soaked ladyfingers, mascarpone cheese, and a dusting of cocoa, a heavenly Italian dessert!!',
+      description: 'Indulge in layers of espresso-soaked ladyfingers, mascarpone cheese, and a dusting of cocoa!!',
       imagePath:'lib/images/tiramisu.jpg',
     ),
     Item(
@@ -119,13 +119,13 @@ class Cart extends ChangeNotifier{
     Item(
       name: 'Brownie',
       price: '300',
-      description: 'Indulge in our decadent chocolate brownie, boasting a fudgy interior and crackly top, delivering intense cocoa flavor!!',
+      description: 'Indulge in our decadent chocolate brownie, boasting a fudgy interior and crackly top!!',
       imagePath:'lib/images/brownie.jpg',
     ),
     Item(
       name: 'Tres Leches',
       price: '900',
-      description: 'A sponge cake soaked in three types of milk—evaporated milk, condensed milk, and heavy cream—resulting in a moist dessert !!',
+      description: 'A sponge cake soaked in three types of milk—evaporated milk, condensed milk, and cream!!',
       imagePath:'lib/images/tres.jpg',
     ),
 
@@ -143,19 +143,19 @@ class Cart extends ChangeNotifier{
     Item(
       name: 'Sausage Roll',
       price: '200',
-      description: 'Flaky pastry wrapped around seasoned sausage meat, offering a savory and satisfying handheld snack!!',
+      description: 'Flaky pastry wrapped around seasoned sausage meat, offering a savory and satisfying snack!!',
       imagePath:'lib/images/roll.jpg',
     ),
     Item(
       name: 'Chicken Pie',
       price: '300',
-      description: 'Tender chunks of chicken and savory gravy encased in buttery pastry, providing a comforting and flavorful meal!!',
+      description: 'Tender chunks of chicken and savory gravy encased in buttery pastry, a comforting meal!!',
       imagePath:'lib/images/pie.jpg',
     ),
     Item(
       name: 'Cheese Puff',
       price: '200',
-      description: 'Light and airy pastry filled with gooey melted cheese, offering a deliciously indulgent savory treat!!',
+      description: 'Light and airy pastry filled with gooey melted cheese, offering a delicious savory treat!!',
       imagePath:'lib/images/puff.jpg',
     ),
     Item(
