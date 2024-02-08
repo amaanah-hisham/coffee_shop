@@ -6,34 +6,35 @@ import 'item.dart';
 class Cart extends ChangeNotifier{
   List<Item> hotBeverages=[
     Item(
-      name: 'Latte',
+      name: 'Cafe Mocha',
+      price: '800',
+      description: 'A delightful blend of espresso, steamed milk, and chocolate syrup, topped with whipped cream!!',
+      imagePath:'lib/images/mocha3.png',
+    ),
+    Item(
+      name: 'Cafe Latte',
       price: '600',
-      description: 'Hot cup of latte with freshley brewed coffee',
-      imagePath:'lib/images/mocha.jpg',
+      description: 'A smooth and creamy drink made with a shot of espresso and steamed milk, topped with milk foam!!',
+      imagePath:'lib/images/coffee_3.jpg',
     ),
     Item(
       name: 'Americano',
-      price: '700',
-      description: 'Strong shot of americano',
-      imagePath:'lib/images/mocha.jpg',
-    ),
-    Item(
-      name: 'Mocha',
-      price: '600',
-      description: 'Mocha topped with whipped cream',
-      imagePath:'lib/images/mocha.jpg',
-    ),
-    Item(
-      name: 'Cappucino',
-      price: '500',
-      description: 'Freshly brewed coffee with milk',
-      imagePath:'lib/images/mocha.jpg',
-    ),
-    Item(
-      name: 'Espresso',
       price: '400',
-      description: 'Strong shot of fresh coffee',
-      imagePath:'lib/images/mocha.jpg',
+      description: 'Made by diluting a shot of espresso with hot water, this provides a similar strength to drip coffee!!',
+      imagePath:'lib/images/americano2.jpg',
+
+    ),
+    Item(
+      name: 'Cappuccino',
+      price: '700',
+      description: 'A classic Italian beverage consisting of equal parts espresso, steamed milk, and milk foam!!',
+      imagePath:'lib/images/capp.jpg',
+    ),
+    Item(
+      name: 'Macchiato',
+      price: '900',
+      description: 'A blend of espresso, steamed milk, and caramel syrup, creating a sweet and indulgent coffee treat!!',
+      imagePath:'lib/images/caramel.jpg',
     ),
   ];
 
@@ -69,28 +70,28 @@ class Cart extends ChangeNotifier{
 
   List<Item> coldBeverages=[
     Item(
-      name: 'L',
+      name: 'Iced Coffee',
       price: '600',
-      description: 'Hot cup of latte',
-      imagePath:'lib/images/mocha.jpg',
+      description: 'Chilled coffee served over ice, often with the option to add milk, cream, or sweeteners to taste!!',
+      imagePath:'lib/images/iced.jpg',
     ),
     Item(
-      name: 'A',
+      name: 'Frappuccino',
+      price: '800',
+      description: 'A blended coffee beverage made with espresso, milk, ice, and flavored syrups, often topped with whipped cream!!',
+      imagePath:'lib/images/frappe.jpg',
+    ),
+    Item(
+      name: 'Milk Tea',
+      price: '600',
+      description: 'Chilled brewed tea served with milk and tapioca pearls, available in strong black tea flavour!!',
+      imagePath:'lib/images/tea.jpg',
+    ),
+    Item(
+      name: 'Iced Americano',
       price: '700',
-      description: 'Strong shot of americano',
-      imagePath:'lib/images/mocha.jpg',
-    ),
-    Item(
-      name: 'M',
-      price: '600',
-      description: 'Mocha topped with whipped cream',
-      imagePath:'lib/images/mocha.jpg',
-    ),
-    Item(
-      name: 'C',
-      price: '500',
-      description: 'Freshly brewed coffee with milk',
-      imagePath:'lib/images/mocha.jpg',
+      description: 'Espresso served over ice, offering a strong and refreshing option!!',
+      imagePath:'lib/images/americano3.jpg',
     ),
 
   ];
@@ -104,28 +105,28 @@ class Cart extends ChangeNotifier{
 
   List<Item> desserts=[
     Item(
-      name: 'Liii',
-      price: '600',
-      description: 'Hot cup of latte',
-      imagePath:'lib/images/mocha.jpg',
+      name: 'Tiramisu',
+      price: '900',
+      description: 'Indulge in layers of espresso-soaked ladyfingers, mascarpone cheese, and a dusting of cocoa, a heavenly Italian dessert!!',
+      imagePath:'lib/images/tiramisu.jpg',
     ),
     Item(
-      name: 'Aaaa',
-      price: '700',
-      description: 'Strong shot of americano',
-      imagePath:'lib/images/mocha.jpg',
+      name: 'Crème Brûlée',
+      price: '1000',
+      description: 'Velvety vanilla custard topped with a caramelized sugar crust, served in an elegant ramekin!!',
+      imagePath:'lib/images/creme.jpg',
     ),
     Item(
-      name: 'Miii',
-      price: '600',
-      description: 'Mocha topped with whipped cream',
-      imagePath:'lib/images/mocha.jpg',
+      name: 'Brownie',
+      price: '300',
+      description: 'Indulge in our decadent chocolate brownie, boasting a fudgy interior and crackly top, delivering intense cocoa flavor!!',
+      imagePath:'lib/images/brownie.jpg',
     ),
     Item(
-      name: 'Ciii',
-      price: '500',
-      description: 'Freshly brewed coffee with milk',
-      imagePath:'lib/images/mocha.jpg',
+      name: 'Tres Leches',
+      price: '900',
+      description: 'A sponge cake soaked in three types of milk—evaporated milk, condensed milk, and heavy cream—resulting in a moist dessert !!',
+      imagePath:'lib/images/tres.jpg',
     ),
 
   ];
@@ -140,28 +141,28 @@ class Cart extends ChangeNotifier{
 
   List<Item> savoury=[
     Item(
-      name: 't',
-      price: '600',
-      description: 'Hot cup of latte',
-      imagePath:'lib/images/mocha.jpg',
+      name: 'Sausage Roll',
+      price: '200',
+      description: 'Flaky pastry wrapped around seasoned sausage meat, offering a savory and satisfying handheld snack!!',
+      imagePath:'lib/images/roll.jpg',
     ),
     Item(
-      name: 't',
-      price: '700',
-      description: 'Strong shot of americano',
-      imagePath:'lib/images/mocha.jpg',
+      name: 'Chicken Pie',
+      price: '300',
+      description: 'Tender chunks of chicken and savory gravy encased in buttery pastry, providing a comforting and flavorful meal!!',
+      imagePath:'lib/images/pie.jpg',
     ),
     Item(
-      name: 't',
-      price: '600',
-      description: 'Mocha topped with whipped cream',
-      imagePath:'lib/images/mocha.jpg',
+      name: 'Cheese Puff',
+      price: '200',
+      description: 'Light and airy pastry filled with gooey melted cheese, offering a deliciously indulgent savory treat!!',
+      imagePath:'lib/images/puff.jpg',
     ),
     Item(
-      name: 't',
-      price: '500',
-      description: 'Freshly brewed coffee with milk',
-      imagePath:'lib/images/mocha.jpg',
+      name: 'Chicken bagel',
+      price: '800',
+      description: 'A hearty bagel sandwich filled with tender grilled chicken, crispy bacon strips and eggs!!',
+      imagePath:'lib/images/bagel.jpg',
     ),
 
   ];

@@ -43,7 +43,7 @@ class ItemCard extends StatelessWidget {
             ),
 
             // Description
-            Padding(
+            /*Padding(
               padding: EdgeInsets.symmetric(horizontal: 25.0),
               child: Text(
                 item.description,
@@ -52,7 +52,7 @@ class ItemCard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
+            ),*/
 
             // Name + Price
             Padding(

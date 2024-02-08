@@ -146,7 +146,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
           SizedBox(height: 10),
 
           Container(
-            height: 360,
+            height: 240,
             child: Padding(
               padding: EdgeInsets.only(right:  20.0),
             child: ListView.builder(
@@ -191,7 +191,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
           SizedBox(height: 10),
 
           Container(
-            height: 360,
+            height: 240,
             child: Padding(
               padding: EdgeInsets.only(right:  20.0),
               child: ListView.builder(
@@ -247,7 +247,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
           SizedBox(height: 10),
 
           Container(
-            height: 360,
+            height: 240,
             child: Padding(
               padding: EdgeInsets.only(right:  20.0),
               child: ListView.builder(
@@ -294,7 +294,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
           SizedBox(height: 10),
 
           Container(
-            height: 360,
+            height: 240,
             child: Padding(
               padding: EdgeInsets.only(right:  20.0),
               child: ListView.builder(
