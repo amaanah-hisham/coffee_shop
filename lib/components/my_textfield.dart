@@ -1,38 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // Import TextInputFormatter
 
 class MyTextField extends StatelessWidget {
-  final controller;
+  final TextEditingController controller;
   final String hintText;
   final bool obscureText;
+  final FormFieldValidator<String>? validator;
+  final TextInputType? inputType;
+  final List<TextInputFormatter>? inputFormatters; // New parameter for input formatters
 
   const MyTextField({
-    super.key,
+    Key? key,
     required this.controller,
     required this.hintText,
     required this.obscureText,
-  });
+    this.validator,
+    this.inputType,
+    this.inputFormatters, // Optional input formatters
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         obscureText: obscureText,
+        keyboardType: inputType,
+        validator: validator,
+        inputFormatters: inputFormatters, // Set input formatters
         decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
-                borderRadius: BorderRadius.circular(30)
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey.shade400),
-                borderRadius: BorderRadius.circular(30)
-            ),
-            contentPadding: EdgeInsets.only(left: 20, top: 20, bottom: 20),
-            fillColor: Colors.brown.shade50,
-            filled: true,
-            hintText: hintText,
-            hintStyle: TextStyle(color: Colors.brown[400])),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey.shade400),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          contentPadding: EdgeInsets.only(left: 20, top: 20, bottom: 20),
+          fillColor: Colors.brown.shade50,
+          filled: true,
+          hintText: hintText,
+          hintStyle: TextStyle(color: Colors.brown[400]),
+        ),
       ),
     );
   }

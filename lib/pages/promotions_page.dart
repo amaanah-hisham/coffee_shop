@@ -17,19 +17,21 @@ class PromotionsPage extends StatelessWidget {
               ),
 
             ),
-            SizedBox(height: 16.0),
+            SizedBox(height: 20.0),
 
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: const [
+                  children: [
                     Text(
                       'Offers & Promotions',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 23,
+                        color: Colors.brown[900],
+
                       ),
                     ),
                   ],
@@ -90,6 +92,7 @@ class PromotionsPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
+                    color: Colors.brown.shade900,
                   ),
                 ),
                 SizedBox(height: 8.0),
@@ -97,6 +100,8 @@ class PromotionsPage extends StatelessWidget {
                   description,
                   style: TextStyle(
                     fontSize: 16.0,
+                    color: Colors.brown.shade900,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
