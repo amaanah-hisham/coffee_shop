@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:coffee_shop/components/my_textfield.dart';
 import 'package:flutter/services.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   RegisterPage({Key? key}) : super(key: key);
 
+  @override
+  _RegisterPageState createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final mobileController = TextEditingController();
@@ -46,56 +51,83 @@ class RegisterPage extends StatelessWidget {
                     hintText: 'Username',
                     obscureText: false,
                     inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]'))], // Allow alphabetical characters only
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your username';
+                      }
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 10),
                   MyTextField(
                     controller: emailController,
                     hintText: 'Email',
                     obscureText: false,
-                    validator: _validateEmail,
                     inputType: TextInputType.emailAddress,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your email';
+                      }
+                      // Check if the email is valid using a regular expression
+                      if (!value.contains('@')) {
+                        return 'Please enter a valid email';
+                      }
 
+                      return null;;
+                    },
                   ),
                   const SizedBox(height: 10),
                   MyTextField(
                     controller: mobileController,
                     hintText: 'Mobile Number',
                     obscureText: false,
-                    inputType: TextInputType.phone, // Set input type to phone
+                    inputType: TextInputType.phone,
                     inputFormatters: [
-                      LengthLimitingTextInputFormatter(10), // Limit to 10 characters
-                      FilteringTextInputFormatter.digitsOnly, // Restrict input to digits only
+                      LengthLimitingTextInputFormatter(10),
+                      FilteringTextInputFormatter.digitsOnly,
                     ],
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your mobile number';
+                      }
+                      // You can add more validation here if needed
+                      return null;
+                    },
                   ),
-
                   const SizedBox(height: 10),
                   MyTextField(
                     controller: passwordController,
                     hintText: 'Password',
                     obscureText: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your password';
+                      }
+                      // You can add more validation here if needed
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 10),
                   MyTextField(
                     controller: confirmPasswordController,
                     hintText: 'Confirm Password',
                     obscureText: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please confirm your password';
+                      }
+                      // You can add more validation here if needed
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 25),
                   GestureDetector(
                     onTap: () {
-                      if (_formKey.currentState != null &&
-                          _formKey.currentState!.validate()) {
-                        String? fieldsValidationResult = _validateFields();
-                        if (fieldsValidationResult != null) {
-                          // Show message if any field is empty or email is invalid
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text(fieldsValidationResult)),
-                          );
-                        } else {
-                          // Proceed with sign up if all validations pass
-                          signUserIn();
-                          Navigator.pushNamed(context, '/login_page');
-                        }
+                      if (_formKey.currentState!.validate()) {
+                        // All fields are validated
+                        // You can proceed with sign up
+                        signUserIn();
+                        Navigator.pushNamed(context, '/login_page');
                       }
                     },
                     child: Container(
@@ -117,8 +149,6 @@ class RegisterPage extends StatelessWidget {
                       ),
                     ),
                   ),
-
-
                   const SizedBox(height: 50),
                 ],
               ),
@@ -127,25 +157,5 @@ class RegisterPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-
-  String? _validateFields() {
-    if (nameController.text.isEmpty ||
-        emailController.text.isEmpty ||
-        mobileController.text.isEmpty ||
-        passwordController.text.isEmpty ||
-        confirmPasswordController.text.isEmpty) {
-      return 'Please fill all details to sign up';
-    }
-    return null;
-  }
-
-
-  String? _validateEmail(String? value) {
-    if (value != null && !value.contains('@')) {
-      return 'Please enter a valid email';
-    }
-    return null;
   }
 }

@@ -54,7 +54,9 @@ class Cart extends ChangeNotifier{
   }
 
   //add items to cart
-  void addItemToCart(Item item){
+  void addItemToCart(Item item, String selectedSize, int selectedQuantity){
+    item.selectedSize=selectedSize;
+    item.selectedQuantity=selectedQuantity;
     userCart.add(item);
     notifyListeners();
   }

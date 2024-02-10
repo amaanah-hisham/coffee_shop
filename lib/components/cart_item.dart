@@ -38,20 +38,58 @@ class _CartItemState extends State<CartItem>
           ),
           child: ListTile(
             leading: Image.asset(widget.item.imagePath),
-            title: Text(
-              widget.item.name,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.brown[900],
-              ),
+            title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.item.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    'Size: ${widget.item.selectedSize}',
+                    style: TextStyle(color: Colors.brown[900]),
+                  ),
+                  SizedBox(height: 6),
+                ],
             ),
-            subtitle: Text(
-              "LKR ${widget.item.price}",
-              style: TextStyle(
-                //fontWeight: FontWeight.bold,
-                color: Colors.brown[900],
-              ),
-            ),
+            subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'LKR ${widget.item.price}',
+                    style: TextStyle(
+                      color: Colors.brown[900],
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.remove),
+                        onPressed: () {
+                          setState(() {
+                            widget.item.selectedQuantity--;
+                          });
+                        },
+                      ),
+                      Text(
+                        '${widget.item.selectedQuantity}',
+                        style: TextStyle(fontSize: 16, color: Colors.brown[900]),
+                      ),
+                      IconButton(
+                          icon: Icon(Icons.add),
+                          onPressed: () {
+                            setState(() {
+                              widget.item.selectedQuantity++;
+                            });
+                          }),
+                    ],
+                  ),
+                ],
+                ),
             trailing: IconButton(
               icon: Icon(Icons.delete),
               color: Colors.brown[900],

@@ -17,13 +17,14 @@ class CartPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //heading
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Container(
-              height: 150.0,
+              height: 100.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('lib/images/cart_banner3.png'),
                   fit: BoxFit.cover,
+
                 ),
               ),
 
@@ -35,7 +36,7 @@ class CartPage extends StatelessWidget {
 
             ),
 
-            SizedBox(height: 20),
+            SizedBox(height: 10),
 
             Expanded(
               child:ListView.builder(

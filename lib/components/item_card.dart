@@ -7,18 +7,15 @@ import '../models/item.dart';
 
 class ItemCard extends StatelessWidget {
   final Item item;
-  final void Function()? onTap;
+  //final void Function()? onTap;
 
-  ItemCard({Key? key, required this.item, required this.onTap})
+  ItemCard({Key? key, required this.item})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-
-      },
-      child: Container(
+    return
+      Container(
         margin: EdgeInsets.only(left: 25),
         width: 240,
         decoration: BoxDecoration(
@@ -109,14 +106,14 @@ class ItemCard extends StatelessWidget {
             ),
           ],
         ),
-      ),
+
     );
   }
 
   void _showItemDetails(BuildContext context) {
     //variables to hold selected size and quantity
     String selectedSize = 'M'; // Default size = Medium
-    int quantity = 1; // Default quantity = 1
+    int selectedQuantity = 1; // Default quantity = 1
 
     showDialog(
       context: context,
@@ -238,9 +235,9 @@ class ItemCard extends StatelessWidget {
                             icon: Icon(Icons.remove),
                             onPressed: () {
                               // Decrease quantity
-                              if (quantity > 1) {
+                              if (selectedQuantity > 1) {
                                 setState(() {
-                                  quantity--;
+                                  selectedQuantity--;
                                 });
                               }
                             },
@@ -251,7 +248,7 @@ class ItemCard extends StatelessWidget {
                       ),
                       SizedBox(width: 10), // Add some space between the buttons
                       Text(
-                        '$quantity',
+                        '$selectedQuantity',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 17,
@@ -274,7 +271,7 @@ class ItemCard extends StatelessWidget {
                             onPressed: () {
                               // Increase quantity
                               setState(() {
-                                quantity++;
+                                selectedQuantity++;
                               });
                             },
                             iconSize: 20, // Adjust the size of the icon
@@ -332,7 +329,8 @@ class ItemCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // Call your add to cart function here with selectedSize and quantity
-                    Provider.of<Cart>(context, listen: false).addItemToCart(item);
+                    Provider.of<Cart>(context, listen: false).addItemToCart(item, selectedSize, selectedQuantity);
+                    _showSnackbar(context);
                     Navigator.of(context).pop();
                   },
                   style: ElevatedButton.styleFrom(
@@ -353,4 +351,12 @@ class ItemCard extends StatelessWidget {
       ),
     );
   }
+}
+void _showSnackbar(BuildContext context) {
+  final snackBar = SnackBar(
+    content: Text('Item added to the cart successfully'),
+    duration: Duration(seconds: 1),
+    //backgroundColor: Colors.brown,
+  );
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }

@@ -24,7 +24,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
   int sliderIndex = 0;
 
   //adding item to cart
-  void addCoffeeToCart(Item item) {
+  /*void addCoffeeToCart(Item item) {
     Provider.of<Cart>(context, listen: false).addItemToCart(item);
 
     showDialog(
@@ -46,7 +46,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
       ),
     );
 
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +150,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
             child: Padding(
               padding: EdgeInsets.only(right:  20.0),
             child: ListView.builder(
-              itemCount: 5,
+              itemCount: value.getHotBeverages().length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
                 //create an item
@@ -160,7 +160,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
 
                 return ItemCard(
                   item: item,
-                  onTap: () => addCoffeeToCart(item),
+                  //onTap: () => addCoffeeToCart(item),
                 );
               },
             ),
@@ -205,7 +205,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
 
                   return ItemCard(
                     item: item,
-                    onTap: () => addCoffeeToCart(item),
+                    //onTap: () => addCoffeeToCart(item),
                   );
                 },
               ),
@@ -261,7 +261,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
 
                   return ItemCard(
                     item: item,
-                    onTap: () => addCoffeeToCart(item),
+                    //onTap: () => addCoffeeToCart(item),
                   );
                 },
               ),
@@ -308,7 +308,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
 
                   return ItemCard(
                     item: item,
-                    onTap: () => addCoffeeToCart(item),
+                    //onTap: () => addCoffeeToCart(item),
                   );
                 },
               ),
