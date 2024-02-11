@@ -52,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             trailing: Switch(
               value: isDarkModeEnabled,
-              activeColor: Colors.brown[900],
+              activeColor: isDarkModeEnabled ? Colors.white : Colors.brown[900],
               onChanged: (value) {
                 setState(() {
                   isDarkModeEnabled = value;
@@ -76,7 +76,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             trailing: Switch(
               value: areNotificationsEnabled,
-              activeColor: Colors.brown[900],
+              activeColor: isDarkModeEnabled ? Colors.white : Colors.brown[900],
               onChanged: (value) {
                 setState(() {
                   areNotificationsEnabled = value;

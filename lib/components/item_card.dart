@@ -328,7 +328,7 @@ class ItemCard extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    //  add to cart function here with selectedSize and quantity
+                    //  add to cart function with selectedSize and quantity
                     Provider.of<Cart>(context, listen: false).addItemToCart(item, selectedSize, selectedQuantity);
                     _showSnackbar(context);
                     Navigator.of(context).pop();

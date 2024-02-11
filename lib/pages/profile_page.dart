@@ -58,7 +58,7 @@ class ProfilePage extends StatelessWidget {
               SizedBox(height: 8),
               TextButton(
                 onPressed: () {
-                  // Add logic to navigate to edit profile page
+                  //navigate to edit profile page
                 },
                 child: Text(
                   'Edit Profile',

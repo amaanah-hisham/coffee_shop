@@ -73,7 +73,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         return 'Please enter a valid email';
                       }
 
-                      return null;;
+                      return null;
                     },
                   ),
                   const SizedBox(height: 10),
@@ -90,7 +90,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your mobile number';
                       }
-                      // You can add more validation here if needed
+
                       return null;
                     },
                   ),
@@ -103,7 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your password';
                       }
-                      // You can add more validation here if needed
+
                       return null;
                     },
                   ),
@@ -116,7 +116,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       if (value == null || value.isEmpty) {
                         return 'Please confirm your password';
                       }
-                      // You can add more validation here if needed
+
                       return null;
                     },
                   ),
@@ -125,7 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
                         // All fields are validated
-                        // You can proceed with sign up
+                        //  can proceed with sign up
                         signUserIn();
                         Navigator.pushNamed(context, '/login_page');
                       }

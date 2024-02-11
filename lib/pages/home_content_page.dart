@@ -65,7 +65,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
                       color: Colors.grey[50], // Set input field background color
                       borderRadius: BorderRadius.circular(30.0),
                       border: Border.all(
-                        color: Colors.grey.shade400, // Set white color for the border
+                        color: Colors.grey.shade400,
                         width: 1.0, // Set border width
                       ),
                     ),
