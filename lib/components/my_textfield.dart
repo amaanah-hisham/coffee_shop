@@ -31,15 +31,15 @@ class MyTextField extends StatelessWidget {
         inputFormatters: inputFormatters, // Set input formatters
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: BorderSide(color: Colors.brown.shade100),
             borderRadius: BorderRadius.circular(30),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade400),
+            borderSide: BorderSide(color: Colors.brown.shade300),
             borderRadius: BorderRadius.circular(30),
           ),
           contentPadding: EdgeInsets.only(left: 20, top: 20, bottom: 20),
-          fillColor: Colors.brown.shade50,
+          fillColor: Colors.grey.shade100,
           filled: true,
           hintText: hintText,
           hintStyle: TextStyle(color: Colors.brown[400]),

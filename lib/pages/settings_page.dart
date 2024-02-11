@@ -43,7 +43,13 @@ class _SettingsPageState extends State<SettingsPage> {
 
           // Dark Mode
           ListTile(
-            title: Text('Dark Mode'),
+            title: Text(
+                'Dark Mode',
+              style: TextStyle(
+                color: isDarkModeEnabled ? Colors.white : Colors.brown[900],
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             trailing: Switch(
               value: isDarkModeEnabled,
               activeColor: Colors.brown[900],
@@ -62,7 +68,12 @@ class _SettingsPageState extends State<SettingsPage> {
           SizedBox(height: 16),
           // Send Notifications
           ListTile(
-            title: Text('Send Notifications to Mobile'),
+            title: Text('Send Notifications to Mobile',
+              style: TextStyle(
+                color: isDarkModeEnabled ? Colors.white : Colors.brown[900],
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             trailing: Switch(
               value: areNotificationsEnabled,
               activeColor: Colors.brown[900],
@@ -86,7 +97,12 @@ class _SettingsPageState extends State<SettingsPage> {
 
             },
             child: ListTile(
-              title: Text('Terms and Conditions'),
+              title: Text('Terms and Conditions',
+                style: TextStyle(
+                  color: isDarkModeEnabled ? Colors.white : Colors.brown[900],
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
               trailing: Icon(Icons.arrow_forward),
             ),
           ),
@@ -99,7 +115,12 @@ class _SettingsPageState extends State<SettingsPage> {
 
             },
             child: ListTile(
-              title: Text('About'),
+              title: Text('About',
+                style: TextStyle(
+                  color: isDarkModeEnabled ? Colors.white : Colors.brown[900],
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
               trailing: Icon(Icons.arrow_forward),
             ),
           ),
@@ -113,7 +134,12 @@ class _SettingsPageState extends State<SettingsPage> {
 
             },
             child: ListTile(
-              title: Text('Help'),
+              title: Text('Help',
+                style: TextStyle(
+                  color: isDarkModeEnabled ? Colors.white : Colors.brown[900],
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
               trailing: Icon(Icons.arrow_forward),
             ),
           ),

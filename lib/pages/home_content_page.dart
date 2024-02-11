@@ -62,8 +62,12 @@ class _HomeContentPageState extends State<HomeContentPage> {
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     decoration: BoxDecoration(
-                      color: Colors.grey[200], // Set input field background color
-                      borderRadius: BorderRadius.circular(8.0),
+                      color: Colors.grey[50], // Set input field background color
+                      borderRadius: BorderRadius.circular(30.0),
+                      border: Border.all(
+                        color: Colors.grey.shade400, // Set white color for the border
+                        width: 1.0, // Set border width
+                      ),
                     ),
                     child: Row(
                       children: [

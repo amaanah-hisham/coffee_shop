@@ -29,11 +29,11 @@ class _CartItemState extends State<CartItem>
     return Padding(
       padding: EdgeInsets.only(bottom: 10),
       child: Material(
-        elevation: 4,
+        elevation: 7,
         borderRadius: BorderRadius.circular(8),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.grey[100],
+            color: Colors.grey[50],
             borderRadius: BorderRadius.circular(8),
           ),
           child: ListTile(
@@ -51,7 +51,8 @@ class _CartItemState extends State<CartItem>
                   SizedBox(height: 6),
                   Text(
                     'Size: ${widget.item.selectedSize}',
-                    style: TextStyle(color: Colors.brown[900]),
+                    style: TextStyle(color: Colors.brown[900], fontWeight: FontWeight.w500,),
+
                   ),
                   SizedBox(height: 6),
                 ],
@@ -63,6 +64,7 @@ class _CartItemState extends State<CartItem>
                     'LKR ${widget.item.price}',
                     style: TextStyle(
                       color: Colors.brown[900],
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   Row(

@@ -23,7 +23,7 @@ class ItemCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withOpacity(0.7),
               spreadRadius: 2,
               blurRadius: 5,
               offset: Offset(0, 3),
@@ -118,7 +118,7 @@ class ItemCard extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15), // Adjust the blur intensity as needed
+        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
         child: StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
@@ -134,7 +134,7 @@ class ItemCard extends StatelessWidget {
                       color: Colors.brown[900],
                     ),
                   ),
-                  Divider( // Add a Divider as a heading indicator
+                  Divider( // Divider as a heading indicator
                     color: Colors.grey.shade400,
                     thickness: 2,
                     height: 20,
@@ -159,7 +159,7 @@ class ItemCard extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       item.description,
-                      textAlign: TextAlign.justify, // Justify the text
+                      textAlign: TextAlign.justify,
                       style: TextStyle(
                         color: Colors.brown[700],
                         fontWeight: FontWeight.w500,
@@ -183,7 +183,7 @@ class ItemCard extends StatelessWidget {
                     children: ['S', 'M', 'L'].map((size) {
                       return GestureDetector(
                         onTap: () {
-                          // Update selected size when tapped
+                          //  selected size when tapped
                           setState(() {
                             selectedSize = size;
                           });
@@ -222,8 +222,8 @@ class ItemCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        width: 30, // Adjust the width of the buttons
-                        height: 30, // Adjust the height of the buttons
+                        width: 30, // width of the buttons
+                        height: 30, // height of the buttons
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -231,7 +231,7 @@ class ItemCard extends StatelessWidget {
                             color: Colors.brown[900],
                           ),
                           child: IconButton(
-                            padding: EdgeInsets.zero, // Added padding to center the icon
+                            padding: EdgeInsets.zero, // padding to center the icon
                             icon: Icon(Icons.remove),
                             onPressed: () {
                               // Decrease quantity
@@ -241,12 +241,12 @@ class ItemCard extends StatelessWidget {
                                 });
                               }
                             },
-                            iconSize: 20, // Adjust the size of the icon
+                            iconSize: 20, //  size of the icon
                             color: Colors.white, // Minus Icon Color
                           ),
                         ),
                       ),
-                      SizedBox(width: 10), // Add some space between the buttons
+                      SizedBox(width: 10), //  space between the buttons
                       Text(
                         '$selectedQuantity',
                         style: TextStyle(
@@ -255,10 +255,10 @@ class ItemCard extends StatelessWidget {
                           color: Colors.brown[900],
                         ),
                       ),
-                      SizedBox(width: 10), // Add some space between the buttons
+                      SizedBox(width: 10), //  space between the buttons
                       SizedBox(
-                        width: 30, // Adjust the width of the buttons
-                        height: 30, // Adjust the height of the buttons
+                        width: 30, // width of the buttons
+                        height: 30, // height of the buttons
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -266,7 +266,7 @@ class ItemCard extends StatelessWidget {
                             color: Colors.brown[900],
                           ),
                           child: IconButton(
-                            padding: EdgeInsets.zero, // Added padding to center the icon
+                            padding: EdgeInsets.zero, //  padding to center the icon
                             icon: Icon(Icons.add),
                             onPressed: () {
                               // Increase quantity
@@ -274,7 +274,7 @@ class ItemCard extends StatelessWidget {
                                 selectedQuantity++;
                               });
                             },
-                            iconSize: 20, // Adjust the size of the icon
+                            iconSize: 20, //  size of the icon
                             color: Colors.white, // Plus Icon Color
                           ),
                         ),
@@ -328,7 +328,7 @@ class ItemCard extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Call your add to cart function here with selectedSize and quantity
+                    //  add to cart function here with selectedSize and quantity
                     Provider.of<Cart>(context, listen: false).addItemToCart(item, selectedSize, selectedQuantity);
                     _showSnackbar(context);
                     Navigator.of(context).pop();
